@@ -1,0 +1,16 @@
+<ion-view view-title="SafeInga">
+  <ion-nav-bar class="bar-balanced">
+    <ion-nav-back-button>SafeInga</ion-nav-back-button>
+  </ion-nav-bar>
+  <div class="bar bar-subheader">
+    <h2 class="title">Selecione os bairros de interesse (opcional)</h2>
+  </div>
+  <ion-content>
+    <ion-list>
+      <ion-checkbox ng-repeat="bairro in bairros">{{bairro.nome}}</ion-checkbox>
+    </ion-list>
+    <ion-footer-bar class="bar-balanced">
+      <button class="button-block button-balanced" ng-click="confirmarEnderecosInteresse()">Confirmar</button>
+    </ion-footer-bar>
+  </ion-content>
+</ion-view>
