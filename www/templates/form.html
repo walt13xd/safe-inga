@@ -1,0 +1,46 @@
+<ion-view view-title="SafeInga">
+    <div class="bar bar-subheader">
+        <h2 class="title">O que ocorreu?</h2>
+    </div>
+    <ion-content class="has-header">
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">Ocorrências</h1>
+        </ion-header-bar>
+        <ion-content class="">
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Bairro
+                        </div>
+                        <select>
+                            <option>Zona 1</option>
+                            <option>Zona 2</option>
+                            <option>Zona 3</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ion-list>
+                        <ion-radio ng-model="ocorrenica.tipo_ocorrencia" ng-value="'assalto'"><i class="icon flaticon-gun"></i> Assalto</ion-radio>
+                        <ion-radio ng-model="ocorrenica.tipo_ocorrencia" ng-value="'acidente'"><i class="icon flaticon-car-insurance"></i> Acidente</ion-radio>
+                        <ion-radio ng-model="ocorrenica.tipo_ocorrencia" ng-value="'homicidio'"><i class="icon flaticon-skull-and-bones"></i> Homicídio</ion-radio>
+                        <ion-radio ng-model="ocorrenica.tipo_ocorrencia" ng-value="'tumulto'"><i class="icon flaticon-group"></i> Tumulto</ion-radio>
+                    </ion-list>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input">
+                        <textarea rows="4" placeholder="Descrição"></textarea>
+                    </label>
+                </div>
+            </div>
+        </ion-content>
+    </ion-content>
+    <div class="bar bar-footer bar-positive footer-button">
+        <a class="button button-full button-clear" ng-click="cadatrarOcorrenciaForm()">Cadastrar Ocorrênica</a>
+    </div>
+</ion-view>

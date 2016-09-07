@@ -1,0 +1,22 @@
+<ion-view view-title="Notificações">
+    <ion-content class="padding">
+        <section id="cd-timeline" class="cd-container">
+            <div ng-repeat="item in timeline">
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-icon dark">
+                        <i class="ion-location timelineIcon"></i>
+                    </div>
+                    <!-- cd-timeline-img -->
+                    <div class="cd-timeline-content dark">
+                        <h5 class="marginBottom0 marginTop0">{{item.tipo_ocorrencia}}</h5>
+                        <p class="marginTop5 cd-author">{{item.data}}</p>
+                        <p class="timelineText">{{item.descricao}}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ion-content>
+    <div class="bar bar-footer bar-positive footer-button">
+        <a class="button button-full button-clear" ng-click="cadatrarOcorrencia()">Cadastrar Ocorrênica</a>
+    </div>
+</ion-view>

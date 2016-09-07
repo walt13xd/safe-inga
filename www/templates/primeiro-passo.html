@@ -1,14 +1,15 @@
 <ion-view view-title="SafeInga">
-    <ion-content class="has-header">
-        <h1>Qual bairro onde você mora?</h1>
+    <ion-content padding="true">
+        <h2>Qual bairro onde você mora?</h2>
         <ion-list>
-            <ion-radio ng-repeat="bairro in bairros" ng-value="{{bairro.id}}" ng-model="usuario.bairro">
+            <ion-radio ng-repeat="bairro in bairros" ng-value="{{bairro.id}}" ng-click="addBairro({{bairro.id}})">
                 {{bairro.nome}}
             </ion-radio>
         </ion-list>
     </ion-content>
-    <div class="bar bar-footer">
-        <button class="button button-full button-positive button-large" ng-click="confirmarEnderecoUsuario()">Próximo
-        </button>
+    <div class="bar bar-footer bar-positive footer-button">
+        <a class="button button-full button-clear" ng-click="confirmarEnderecoUsuario()" ng-disabled="!usuario.bairro">
+            Próximo
+        </a>
     </div>
 </ion-view>
