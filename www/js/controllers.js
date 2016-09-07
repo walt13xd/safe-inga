@@ -1,67 +1,48 @@
 angular.module('starter.controllers', [])
 
 
-.controller('Main', function($scope, $state, $http) {
+    .controller('Main', function ($scope, $state, $http) {
 
-  var url = 'http://localhost:8080';
+        var url = 'http://localhost:8080';
 
-  $scope.confirmarEnderecoUsuario = function() {
-       $state.go('tab.segundo');
-  };
+        $scope.confirmarEnderecoUsuario = function () {
+            $state.go('tab.segundo');
+        };
 
-  $scope.bairros = [];
-  $scope.usuario = {bairro:'', bairros:[]}
+        $scope.confirmarEnderecosInteresse = function () {
 
-  $http.get('http://localhost:8080/api/bairro').then(function success(result){
-    $scope.bairros = result.data;
-  }, function error(data){
-      console.log(data);
-  });
-})
+        }
 
-.controller('InteresseCtrl', function($scope) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+        $scope.bairros = [];
+        $scope.usuario = {bairro: '', bairros: []}
 
-  $scope.confirmarEnderecosInteresse = function() {
-    //salvar enderecos
-  };
+        $http.get('http://localhost:8080/api/bairro').then(function success(result) {
+            $scope.bairros = result.data;
+        }, function error(data) {
+            console.log(data);
+        });
+    })
 
-  $scope.bairros = [
-  { nome: 'Centro', id: 1 },
-  { nome: 'Zona 1', id: 2 },
-  { nome: 'Zona 2', id: 3 },
-  { nome: 'Zona 3', id: 4 },
-  { nome: 'Vila', id: 5 },
-  { nome: 'Requiao', id: 6 }
-];
-})
+    .controller('NotificCtrl', function ($scope, $ionicActionSheet) {
 
-.controller('NotificCtrl', function($scope, $ionicActionSheet) {
+        $scope.mostrarOcorrencia = function () {
 
-  $scope.mostrarOcorrencia = function() {
-
-    $ionicActionSheet.show({
-      titleText: 'Ocorrências',
-      buttons: [
-        { text: '<i class="icon flaticon-gun"></i> Assalto' },
-        { text: '<i class="icon flaticon-car-insurance"></i> Acidente' },
-        { text: '<i class="icon flaticon-skull-and-bones"></i> Homicídio' },
-        { text: '<i class="icon flaticon-group"></i> Tumulto' }
-      ],
-      cancelText: 'Cancelar',
-      cancel: function() {
-        console.log('CANCELLED');
-      },
-      buttonClicked: function(index) {
-        console.log('BUTTON CLICKED', index);
-        return true;
-      }
+            $ionicActionSheet.show({
+                titleText: 'Ocorrências',
+                buttons: [
+                    {text: '<i class="icon flaticon-gun"></i> Assalto'},
+                    {text: '<i class="icon flaticon-car-insurance"></i> Acidente'},
+                    {text: '<i class="icon flaticon-skull-and-bones"></i> Homicídio'},
+                    {text: '<i class="icon flaticon-group"></i> Tumulto'}
+                ],
+                cancelText: 'Cancelar',
+                cancel: function () {
+                    console.log('CANCELLED');
+                },
+                buttonClicked: function (index) {
+                    console.log('BUTTON CLICKED', index);
+                    return true;
+                }
+            });
+        };
     });
-  };
-});
