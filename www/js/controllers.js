@@ -1,20 +1,22 @@
 angular.module('starter.controllers', [])
 
 
-.controller('DashCtrl', function($scope,$location) {
+.controller('Main', function($scope, $state, $http) {
+
+  var url = 'http://localhost:8080';
 
   $scope.confirmarEnderecoUsuario = function() {
-       $location.path('/tab-interessse');
+       $state.go('tab.segundo');
   };
 
-  $scope.bairros = [
-  { nome: 'Centro', id: 1 },
-  { nome: 'Zona 1', id: 2 },
-  { nome: 'Zona 2', id: 3 },
-  { nome: 'Zona 3', id: 4 },
-  { nome: 'Vila', id: 5 },
-  { nome: 'Requiao', id: 6 }
-];
+  $scope.bairros = [];
+  $scope.usuario = {bairro:'', bairros:[]}
+
+  $http.get('http://localhost:8080/api/bairro').then(function success(result){
+    $scope.bairros = result.data;
+  }, function error(data){
+      console.log(data);
+  });
 })
 
 .controller('InteresseCtrl', function($scope) {

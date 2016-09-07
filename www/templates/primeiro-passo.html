@@ -1,0 +1,16 @@
+<ion-view view-title="SafeInga">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button>SafeInga</ion-nav-back-button>
+    </ion-nav-bar>
+    <div class="bar bar-subheader">
+        <h2 class="title">Selecione seu endereço</h2>
+    </div>
+    <ion-content>
+        <ion-list>
+            <ion-radio ng-repeat="bairro in bairros" ng-value="{{bairro.id}}" ng-model="usuario.bairro">{{bairro.nome}}</ion-radio>
+        </ion-list>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-full button-positive button-large" ng-click="confirmarEnderecoUsuario()">Próximo</button>
+    </div>
+</ion-view>
